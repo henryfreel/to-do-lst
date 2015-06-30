@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
   <!-- custom styles -->
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="styles.css">
 
   <title>To Do List</title>
 </head>
@@ -20,10 +20,10 @@
         <hr>
         <form class="text-center" id="new-todo">
           <div class="form-group">
-            <input class="form-control" id="todo-name" placeholder="What do you need to do today?" autofocus>
+            <input class="form-control" id="todo-title" placeholder="What do you need to do today?" autofocus>
           </div>
           <div class="form-group">
-            <input class="form-control" id="todo-desc" placeholder="Add task details">
+            <input class="form-control" id="todo-description" placeholder="Add task details">
           </div>
           <div class="form-group">
             <input type="submit" class="btn btn-success" value="Add New To Do">
@@ -46,5 +46,12 @@
 
   <!-- custom script -->
   <script type="text/javascript" src="script.js"></script>
+
+  <!-- underscore template -->
+  <script type="text/template" id="todos-template">
+        <li class="item"><%= title %> - <%= description %></li>
+      <hr>
+  </script>
+
 </body>
 </html>
