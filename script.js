@@ -33,6 +33,7 @@ $(function() {
 
 		// store our new todo
 		toDos.push(toDoData);
+		console.log(toDos);
 
 		// append our new todo to the page
 		$toDoList.append($(toDosTemplate(toDoData)));
@@ -44,7 +45,15 @@ $(function() {
 
 	//add class to todo on click to mark it as done
 	$toDoList.on('click', '.todo', function() {
-		$(this).addClass('done');
+		$(this).remove();
+		//find the index of item
+		var itemIdex = $(this).attr("data-index");
+		// Print it
+		console.log(itemIdex);
+		// then delete it
+		toDos.splice(itemIdex, 1);
+		//check to see if really deleted
+		console.log(toDos)
 	});
 
 });
