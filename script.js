@@ -48,21 +48,3 @@ $(function() {
 	});
 
 });
-
-  // // Variables
-  // var $petsList = $("#pets-list");
-
-  // // pets template
-  // var petsTemplate = _.template($('#pets-template').html());
-
-  // var pets = [
-  // {name: "Sprinkles", species: "cat"},
-  // {name: "Bagel", species: "dog"},
-  // {name: "Fluffy", species: "dinosaur"}
-  // ];
-
-  // _.each(pets, function (pet, index) {
-  //   var $pet = $(petsTemplate(pet));
-  //   $pet.attr('data-index', index);
-  //   $petsList.append($pet);
-  // });
