@@ -48,12 +48,29 @@ $(function() {
 		$(this).remove();
 		//find the index of item
 		var itemIdex = $(this).attr("data-index");
+		// or // var itemIdex = $(this).index;
+
 		// Print it
 		console.log(itemIdex);
 		// then delete it
 		toDos.splice(itemIdex, 1);
 		//check to see if really deleted
 		console.log(toDos)
+
+		// reset indexes in DOM to match `toDos` array
+	   // $.each loops through DOM elements
+	   $('.todo').each(function(index) {
+	   	$(this).attr('data-index', index);
+	   });
+	   
 	});
 
+	//$(this).closest('.li').remove();
+
 });
+
+
+
+
+
+
