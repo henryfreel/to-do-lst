@@ -27,14 +27,15 @@ $(function() {
 	toDo3.save();
 
 	ToDo.prototype.render = function() {
-		var $(toDo) = $(toDosTemplate(this));
-		$toDoList.append(toDo);
+		var $toDo = $(toDosTemplate(this));
+		$toDoList.append($toDo);
+		var index = ToDo.all.indexOf(this);
+		console.log(index);
+		$toDo.attr("data-index", index);
 	}
 
 	_.each(ToDo.all, function(todo, index) {
 		todo.render();
-		console.log(todo);
-		// this.attr("data-index", index);
 	})
 
 	// `toDos` array is our model (holds our data)
