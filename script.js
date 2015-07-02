@@ -2,25 +2,61 @@ $(function() {
 
 	var toDosTemplate = _.template($("#todos-template").html())
 
-	// `toDos` array is our model (holds our data)
-	// contains test (or "seed") daa
-	var toDos =[
-		{title: "laundry", description: "clean clothes"},
-		{title: "grocery shopping", description: "buy food"},
-		{title: "nap time", description: "remember to sleep!"}
-	];
-
 	// form to create new todo
 	var $newToDo = $('#new-todo');
-  
+	 
 	// element to hold our list of todos
 	var $toDoList = $('#todo-list');
 
-	_.each(toDos, function (todo, index) {
-		var $toDo = $(toDosTemplate(todo));
-		$toDo.attr("data-index", index);
-		$toDoList.append($toDo);
-	});
+	function ToDo(title, description) {
+		this.title = title;
+		this.description = description;
+	}
+
+	ToDo.all = [];
+
+	ToDo.prototype.save = function() {
+		ToDo.all.push(this);
+	}
+
+	var toDo1 = new ToDo("laundry", "clean clothes");
+	toDo1.save();
+	var toDo2 = new ToDo("grocery shopping", "buy food");
+	toDo2.save();
+	var toDo3 = new ToDo("nap time", "remember to sleep!")
+	toDo3.save();
+
+	ToDo.prototype.render = function() {
+		var $(toDo) = $(toDosTemplate(this));
+		$toDoList.append(toDo);
+	}
+
+	_.each(ToDo.all, function(todo, index) {
+		todo.render();
+		console.log(todo);
+		// this.attr("data-index", index);
+	})
+
+	// `toDos` array is our model (holds our data)
+	// contains test (or "seed") data
+
+	// var toDos =[
+	// 	{title: "laundry", description: "clean clothes"},
+	// 	{title: "grocery shovv,9pping", description: "buy food"},
+	// 	{title: "nap time", description: "remember to sleep!"}
+	// ];
+
+	// form to create new todo
+	// var $newToDo = $('#new-todo');
+  
+	// element to hold our list of todos
+	// var $toDoList = $('#todo-list');
+
+	// _.each(toDos, function (todo, index) {
+	// 	var $toDo = $(toDosTemplate(todo));
+	// 	$toDo.attr("data-index", index);
+	// 	$toDoList.append($toDo);
+	// });
 
 	// submit form to create new todo
 	$newToDo.on('submit', function(event) {
@@ -62,7 +98,7 @@ $(function() {
 	   $('.todo').each(function(index) {
 	   	$(this).attr('data-index', index);
 	   });
-	   
+
 	});
 
 	//$(this).closest('.li').remove();
